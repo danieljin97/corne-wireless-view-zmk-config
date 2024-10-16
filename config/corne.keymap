@@ -16,6 +16,48 @@
             bindings = <&mo 4>;
             key-positions = <5 17>;
         };
+
+        macros {
+            bindings = <&mo 5>;
+            key-positions = <16 19>;
+        };
+    };
+
+    macros {
+        print_screen: print_screen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_WIN &kp S>;
+            label = "PRINT_SCREEN";
+        };
+
+        paste_history: paste_history {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_WIN &kp V>;
+            label = "PASTE_HISTORY";
+        };
+
+        paste_values: paste_values {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp V>;
+            label = "PASTE_VALUES";
+        };
+
+        paste_formatting: paste_formatting {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp R>;
+            label = "PASTE_FORMATTING";
+        };
+
+        email_final: create_table {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(R) &kp E &kp G &kp A &kp R &kp D &kp S &kp COMMA &kp RET &kp LS(D) &kp A &kp N &kp I &kp E &kp L &kp SPACE &kp LS(J) &kp I &kp N>;
+            label = "CREATE_TABLE";
+        };
     };
 
     keymap {
@@ -84,6 +126,15 @@
 &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
 &trans       &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
                                          &trans        &trans        &trans          &trans  &trans  &trans
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&trans  &trans         &trans          &trans             &trans         &trans    &trans  &trans        &trans  &trans  &trans  &trans
+&trans  &print_screen  &paste_history  &paste_formatting  &paste_values  &trans    &trans  &email_final  &trans  &trans  &trans  &trans
+&trans  &trans         &trans          &trans             &trans         &trans    &trans  &trans        &trans  &trans  &trans  &trans
+                                       &trans             &trans         &trans    &trans  &trans        &trans
             >;
         };
     };
