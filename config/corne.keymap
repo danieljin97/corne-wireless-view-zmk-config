@@ -21,6 +21,11 @@
             bindings = <&sl 5>;
             key-positions = <16 19>;
         };
+
+        gaming {
+            bindings = <&to 6>;
+            key-positions = <6 18>;
+        };
     };
 
     macros {
@@ -63,7 +68,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        colmak_dh {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -79,7 +84,7 @@
             >;
         };
 
-        lower_layer {
+        num {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -88,14 +93,14 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &trans        &trans        &trans        &trans  &trans    &trans    &trans        &trans    &trans     &trans  &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N4  &kp N5    &kp LEFT  &kp UP_ARROW  &kp DOWN  &kp RIGHT  &trans  &kp SQT
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9  &kp N0    &trans    &trans        &trans    &trans     &trans  &trans
-                                    &trans        &trans  &trans    &trans    &trans        &trans
+&trans      &trans        &trans        &trans            &trans  &trans    &trans    &trans        &trans    &trans     &trans  &trans
+&trans      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp N4  &kp N5    &kp LEFT  &kp UP_ARROW  &kp DOWN  &kp RIGHT  &trans  &kp SQT
+&kp LSHIFT  &kp NUMBER_6  &kp N7        &kp N8            &kp N9  &kp N0    &trans    &trans        &trans    &trans     &trans  &trans
+                                        &kp LEFT_CONTROL  &trans  &trans    &trans    &trans        &trans
             >;
         };
 
-        raise_layer {
+        symbols {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -104,14 +109,14 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &trans
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp EQUAL
 &trans  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &trans
 &trans  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &trans
                           &trans    &trans    &trans       &trans     &trans     &trans
             >;
         };
 
-        layer_3 {
+        function {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7    &kp F8       &kp F9         &kp F10  &kp F11  &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans    &kp HOME  &kp PAGE_UP  &kp PAGE_DOWN  &kp END  &trans   &trans
@@ -120,7 +125,7 @@
             >;
         };
 
-        layer_4 {
+        bluetooth {
             bindings = <
 &bootloader  &sys_reset    &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
@@ -129,12 +134,21 @@
             >;
         };
 
-        layer_5 {
+        macros {
             bindings = <
 &trans  &trans         &trans          &trans             &trans         &trans    &trans  &trans        &trans  &trans  &trans  &trans
 &trans  &print_screen  &paste_history  &paste_formatting  &paste_values  &trans    &trans  &email_final  &trans  &trans  &trans  &trans
 &trans  &trans         &trans          &trans             &trans         &trans    &trans  &trans        &trans  &trans  &trans  &trans
                                        &trans             &trans         &trans    &trans  &trans        &trans
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp F      &kp P      &kp B    &kp J     &kp L     &kp U      &kp Y    &kp SEMI  &trans
+&kp TAB    &kp A  &kp R  &kp S      &kp T      &kp G    &kp M     &kp N     &kp E      &kp I    &kp O     &kp APOS
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp D      &kp V    &kp K     &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                         &kp LCTRL  &kp SPACE  &to 0    &kp BSPC  &kp BSPC  &to 0
             >;
         };
     };
